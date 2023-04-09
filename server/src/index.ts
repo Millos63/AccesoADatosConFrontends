@@ -4,6 +4,8 @@ import morgan from 'morgan';
 import cors from 'cors';
 import indexRoutes from './routes/IndexRoutes';
 import studentRoutes from './routes/StudentRoutes'
+import MatterRoutes from './routes/MatterRoutes';
+import StudentMatterRoutes from './routes/StudentMatterRoutes';
 //Declaramos la clase server
 class Server
 {
@@ -41,6 +43,8 @@ class Server
 
         this.app.use('/',indexRoutes);
         this.app.use('/api/students',studentRoutes);
+        this.app.use('/api/matters',MatterRoutes);
+        this.app.use('/api/studentsMatters', StudentMatterRoutes)
     }
 
     start(): void

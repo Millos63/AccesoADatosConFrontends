@@ -1,0 +1,24 @@
+<div class="col-md-4-offset-md-2">
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <input type="text" name="id" [(ngModel)]="studentMatter.id" placeholder="Enter id" class="form-control" autofocus>
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="text" name="idMatter" [(ngModel)]="studentMatter.idMatter" placeholder="Enter idMatter" class="form-control" autofocus>
+                </div>
+                <br>
+                <button class="btn btn-success btn-block" (click)="saveNewStudentMatter()" routerLink="/studentsMatters" onclick="mostrarAlerta()">Save</button>
+                <button class="btn btn-success btn-block" (click)="update()" routerLink="/studentsMatters" onclick="mostrarAlerta()">Update</button>
+            </form>
+        </div>
+    </div>    
+</div>
+<div class="col-md-4">
+    <div class="card card-body text-center">
+        <h1>{{studentMatter.id}} - {{studentMatter.idMatter}}</h1>
+        <h2>{{studentMatter.created_at | date:'yyyy-MM-dd'}}</h2>
+    </div>
+</div>

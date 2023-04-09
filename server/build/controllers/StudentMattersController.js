@@ -14,15 +14,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.studentController = void 0;
 const database_1 = __importDefault(require("../database"));
-class StudentController {
+class StudentMattersController {
     //El index me regresa todos los estudiantes
     index(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             //rest.send('ESTUDIANTES');
             //DESC es para ver la descripcion de la tabla students
             //pool.query('DESC student');
-            const student = yield database_1.default.query('SELECT * FROM student');
-            res.json(student);
+            const studentMatter = yield database_1.default.query('SELECT * FROM Student_Matters');
+            res.json(studentMatter);
         });
     }
     //Vamos a crear nuestro primer metodo para guardar en la base de datos.
@@ -30,7 +30,7 @@ class StudentController {
     //Promise establece un canal de comunicacion promice con el servicio
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO student SET ?', [req.body]);
+            yield database_1.default.query('INSERT INTO Student_Matters SET ?', [req.body]);
             //console.log(property)"message:string"
             res.json({ Text: 'Datos de estudiante guardado' });
         });
@@ -40,7 +40,8 @@ class StudentController {
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('DELETE FROM student WHERE id = ?', [id]);
+            const { idMatter } = req.params;
+            yield database_1.default.query('DELETE FROM Student_Matters WHERE id = ? AND idMatter = ?', [id, idMatter]);
             res.json({ Text: 'Datos de estudiante borrados ' + id });
         });
     }
@@ -48,7 +49,8 @@ class StudentController {
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('UPDATE student SET ? WHERE id = ?', [req.body, id]);
+            const { idMatter } = req.params;
+            yield database_1.default.query('UPDATE Student_Matters SET ? WHERE id = ?  AND idMatter = ?', [req.body, id, idMatter]);
             res.json({ Text: 'Datos de estudiante actualizados ' + id });
         });
     }
@@ -56,7 +58,8 @@ class StudentController {
     detail(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const student = yield database_1.default.query("SELECT * FROM student WHERE id = ?", [id]);
+            const { idMatter } = req.params;
+            const student = yield database_1.default.query("SELECT * FROM Student_Matters WHERE id = ? AND idMatter = ?", [id, idMatter]);
             if (student.length > 0) {
                 console.log(student[0]);
                 return res.json(student[0]);

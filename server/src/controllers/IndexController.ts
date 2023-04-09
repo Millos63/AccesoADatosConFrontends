@@ -5,6 +5,7 @@ class IndexController{
         rest.send({text: 'Api esta en /api/students'});
     }
 }
+
 export const indexController = new IndexController();
 
 

@@ -1,0 +1,18 @@
+<!--ngFor es un ciclo for de angular-->
+<div class="col-md-4" *ngFor = "let student of students">
+    <div class="card text-center">
+        <div class="card-header bg-dark text-white d-flex justify-content-between aling-items-center">
+            {{student.id}}
+            <button class="btn btn-danger" (click)="delete(student.id)"> <i class="fa-solid fa-trash"></i></button>
+        </div>
+        <img src= {{student.photo}} class="card img-top">
+        <div class="card-body">
+            <p>{{student.firstName}} {{student.lastName}}</p>
+            <a href="" class="btn btn-primary" [routerLink]="['/students/add/', student.id]" >Editar estudiante</a>
+        </div>
+    </div>
+</div>
+
+
+
+

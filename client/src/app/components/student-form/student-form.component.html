@@ -1,0 +1,31 @@
+<div class="col-md-4-offset-md-2">
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <input type="text" name="firstName" [(ngModel)]="student.firstName" placeholder="Enter firstName" class="form-control" autofocus>
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="text" name="lastName" [(ngModel)]="student.lastName" placeholder="Enter lastName" class="form-control" autofocus>
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="url" name="photo" [(ngModel)]="student.photo" placeholder="Enter Photo URL" class="form-control" autofocus>
+                </div>
+                <br>
+                
+                <button class="btn btn-success btn-block" (click)="saveNewStudent()" routerLink="/students" onclick="mostrarAlerta()">Save</button>
+                <button class="btn btn-success btn-block" (click)="update()" routerLink="/students" onclick="mostrarAlerta()">Update</button>
+            </form>
+        </div>
+    </div>    
+</div>
+<div class="col-md-4">
+    <div class="card card-body text-center">
+        <img [src]="student.photo" class="card-img-top">
+        <h1>{{student.id}} - {{student.firstName}} - {{student.lastName}}</h1>
+        <h2>{{student.created_at | date:'yyyy-MM-dd'}}</h2>
+
+    </div>
+</div>

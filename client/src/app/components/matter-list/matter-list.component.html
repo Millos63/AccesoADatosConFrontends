@@ -1,0 +1,12 @@
+<div class="col-md-4" *ngFor = "let matter of matters">
+    <div class="card text-center">
+        <div class="card-header bg-dark text-white d-flex justify-content-between aling-items-center">
+            {{matter.idMatter}}
+            <button class="btn btn-danger" (click)="delete(matter.idMatter)"> <i class="fa-solid fa-trash"></i></button>
+        </div>
+        <div class="card-body">
+            <p>{{matter.nameMatter}}</p>
+            <a href="" class="btn btn-primary" [routerLink]="['/matters/add/', matter.idMatter]" >Editar Materia</a>
+        </div>
+    </div>
+</div>

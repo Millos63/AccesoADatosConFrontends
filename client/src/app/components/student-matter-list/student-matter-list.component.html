@@ -1,0 +1,12 @@
+<div class="col-md-4" *ngFor = "let studentMatters of studentsMatters">
+    <div class="card text-center">
+        <div class="card-header bg-dark text-white d-flex justify-content-between aling-items-center">
+            {{studentMatters.id}} {{studentMatters.idMatter}}
+            <button class="btn btn-danger" (click)="delete(studentMatters.id, studentMatters.idMatter)"> <i class="fa-solid fa-trash"></i></button>
+        </div>
+        <div class="card-body">
+            <p>{{studentMatters.id}} {{studentMatters.idMatter}}</p>
+            <a href="" class="btn btn-primary" [routerLink]="['/studentsMatters/add/' + studentMatters.id +'/' + studentMatters.idMatter]" >Editar estudiante</a>
+        </div>
+    </div>
+</div>

@@ -9,6 +9,8 @@ const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 const IndexRoutes_1 = __importDefault(require("./routes/IndexRoutes"));
 const StudentRoutes_1 = __importDefault(require("./routes/StudentRoutes"));
+const MatterRoutes_1 = __importDefault(require("./routes/MatterRoutes"));
+const StudentMatterRoutes_1 = __importDefault(require("./routes/StudentMatterRoutes"));
 //Declaramos la clase server
 class Server {
     /**
@@ -38,6 +40,8 @@ class Server {
     routes() {
         this.app.use('/', IndexRoutes_1.default);
         this.app.use('/api/students', StudentRoutes_1.default);
+        this.app.use('/api/matters', MatterRoutes_1.default);
+        this.app.use('/api/studentsMatters', StudentMatterRoutes_1.default);
     }
     start() {
         //Servidores siempre escuchan a los puertos

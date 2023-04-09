@@ -12,6 +12,7 @@ class IndexRoutes {
         //Estamos haciendo una ruta de default para el metodo
         //this.router.get('/',(req,res)=>res.send('hola'));
         this.router.get('/', IndexController_1.indexController.index);
+        //this.router.get('/api/StudentController',studentController.index);
     }
 }
 //Como es un objeto, ocuparemos camelCase

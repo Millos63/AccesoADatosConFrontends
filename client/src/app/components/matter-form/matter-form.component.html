@@ -1,0 +1,20 @@
+<div class="col-md-4-offset-md-2">
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <input type="text" name="nameMatter" [(ngModel)]="matter.nameMatter" placeholder="Enter Matter" class="form-control" autofocus>
+                </div>
+                <br>
+                <button class="btn btn-success btn-block" (click)="saveNewMatter()" routerLink="/matters" onclick="mostrarAlerta()">Save</button>
+                <button class="btn btn-success btn-block" (click)="update()" routerLink="/matters" onclick="mostrarAlerta()">Update</button>
+            </form>
+        </div>
+    </div>    
+</div>
+<div class="col-md-4">
+    <div class="card card-body text-center">
+        <h1>{{matter.nameMatter}} </h1>
+
+    </div>
+</div>
